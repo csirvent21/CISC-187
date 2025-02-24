@@ -1,0 +1,50 @@
+Task 1
+Whenever we want to describe time complexity as Big O notation we don't need any regular numbers. So when looking at 4N + 16, you would be left with N. So in this case, the time complexity using Big O notation would be O(N).
+
+Task 2
+We don't need to look at regular numbers, just N. In this case for 2N^2, the time complexity using Big O notation would be O(N^2).
+
+Task 3
+
+def double_then_sum(array) 
+  doubled_array = []
+
+  array.each do |number| 
+    doubled_array << number *= 2
+  end
+
+  sum = 0
+
+  doubled_array.each do |number| 
+    sum += number
+  end
+  return sum 
+end
+
+Looking at this algorithm, the performs two operations per element in the array. The first loop is to double to integer and the second is to add it to the total sum. This means that the algorithm takes 2N steps. However, if we are looking at Big O notation, we should ignore regular numbers. Meaning that the time complexity using Big O notation would be O(N).
+
+Task 4
+
+def multiple_cases(array) 
+  array.each do |string|
+    puts string.upcase 
+    puts string.downcase 
+    puts string.capitalize
+  end 
+end
+
+This algorithm performs 3 operations on a single string element. It calls the operation "upcase", "downcase", and "capitalize". This means that the algorithm takes 3N steps. But when using Big O notation we ignore the regular number (3). So, the time complexity using Big O notation for this algorithm would be O(N).
+
+Task 5
+
+def every_other(array) 
+  array.each_with_index do |number, index|
+    if index.even?
+      array.each do |other_number|
+              puts number + other_number
+      end 
+    end
+  end 
+end
+
+This algorithm has nested loops. However, the inner loop is only performed every other iteration. Meaning that this algorith would take N * (N / 2) steps. This translates to (N^2) / 2. But 1 / 2 is a regular number so we drop it when talking in Big O notation. This means that the time complexity of this algorithm using Big O notation would be O(N^2).
