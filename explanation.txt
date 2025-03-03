@@ -1,0 +1,48 @@
+Task 1
+Understanding how the insertion sort algorithm works will help us understand its time complexity. Here is how it works:
+We use a loop to iterate through the array starting at the second element of the array (meaning start at index = 1). You take that element and you compare it to all elements to the left of it looking for a smaller number (that is where you insert that element). You do this by using another loop. So this algorithm contains 2 nested loops. Which means that in an average case, we are looking algorithm's time complexity of N * N, which is N^2. In Big O notation that is O(N^2). 
+
+Task 2
+In insertion sort, the worst case scenario is when the array is in descending order. So when N = 5, where N is the number elements, this means that we have the array of [5, 4, 3, 2, 1]. Here is how the algorithm will run:
+
+At index i = 1, element 4 will be checked with element 5. Then the algorithm reach left end of array and find that 5 is greater than 4 so it will be shifted. 
+This means that we have 2 operations (1 check and 1 shift)
+
+At index i = 2, element 3 will be checked with element 5 (5 is greater than 3, so keep checking). Then element 3 will be checked with element 4. The algorith will reach left end of array and find that element 5 and 4 are greater than 3 so it will shift them down.
+This means that we have 4 operations (2 checks and 2 shifts).
+
+At index i = 3, element 2 will be checked with element 5 (5 is greater than 2, so keep checking). Then element 2 will be checked with element 4 (4 is greater than 2, so keep checking). Then element 2 will be checked with element 3. The algorith will reach left end of array and find that elements 5, 4, and 3 are greater than 2 so it will shift them down.
+This means that we have 6 operations (3 checks and 3 shifts).
+
+At index i = 4, element 1 will be checked with element 5 (5 is greater than 1, so keep checking). Then element 1 will be checked with element 4 (4 is greater than 1, so keep checking). Then element 1 will be checked with element 3 (3 is greater than 1, so keep checking). Then element 1 will be checked with element 2. The alogirhtm will reach left end of array and find that elements 5, 4, 3, and 2 are greater than 1 so it will shift them down.
+This means that we have 8 operations (4 checks and 4 shifts).
+
+So in TOTAL we have 2 + 4 + 6 + 8 operations which is 20 operations.
+
+Task 3
+We are given the following code:
+
+function containsX(string) {
+  foundX = false;
+  for(let i = 0; i < string.length; i++) { 
+    if (string[i] === "X") {
+      foundX = true; 
+    }
+  }
+  return foundX; 
+}
+
+a. This algorithm uses one loop to iterate through an array of characters (the string) individually checking them with a conditional to see if it equal to X. In a worst case scenario, meaning that the string contains all X's, the time complexity will be 2N (one check, one initialization), where N is the number of characters in the string. This means that in Big O notation, the time complexity of this function is O(N).
+
+b. Since this function's goal is to check whether a string has ONE instance of X and we are not looking for the amount of instances of X in the string, we don't need to iterate through the rest of the string when we have actually found an instance of X. This means that we can break the loop once the algorithm has found an instance of X. This would be the modified code:
+
+function containsX(string) {
+  foundX = false;
+  for(let i = 0; i < string.length; i++) { 
+    if (string[i] === "X") {
+      foundX = true; 
+      break;  // this is the line that we added
+    }
+  }
+  return foundX; 
+}
