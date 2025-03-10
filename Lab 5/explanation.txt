@@ -1,0 +1,2 @@
+Task 3
+Whenever a key is deleted in a hash table, a tombstone replaced it so that it does not just clear it completely. However, these tombstones pose the problem of being "in the way" of a search. When more deletions occur, more tombstones are created. So as deletions accumulate, the search time within a has table will be slower and slower. It could get to the point of being time complexity of O(N).
