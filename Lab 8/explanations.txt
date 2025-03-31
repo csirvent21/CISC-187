@@ -1,0 +1,2 @@
+Task 2
+In a well-balanced binary tree, a maximum case scenario would take O(log2(N)) steps. This would be log2(1000) = 9.96 which would mean that it would take 10 steps (round up).
