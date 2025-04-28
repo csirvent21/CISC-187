@@ -1,0 +1,16 @@
+Task 1
+
+Let's say we have graph:
+A > B weight 3
+A > C weight 1
+B > C weight -1
+And we want the shortest distance of A > C
+
+From A:
+Distance to B would be 3
+Distance to C would be 1
+So we pop C and finalize C = 1
+And this is the correct answer
+
+But let's say that: B > C is now weight -3
+This means that the new shortest path from A to C is now A > B > C = 0. But we already finalized the shortest path to be A > C which is 1. The algorithm assumes that once a node's distance is finalized, there is no other paths that can be shorter than that one. However, this is only true when all weights are postive. Introducing negative weights will break it because a new shorter path can be introduced in which the algorithm will not update it.
