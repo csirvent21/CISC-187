@@ -1,0 +1,37 @@
+Task 1:
+
+for the recursive function:
+
+def print_every_other(low, high) 
+    return if low > high
+    puts low
+    print_every_other(low + 2, high)
+end
+
+line 2 (return if low > high) is the base case. This means that when the low, which is an argument that is passed and increases by 2 every call in the recursion, is greater than high, which is a parameter that is constant throughout the recursion, the recursion is stopped.
+
+Task 2:
+
+def factorial(n)
+    return 1 if n == 1
+    return n * factorial(n - 2)
+end
+
+This function will skip every other value from the beginning value. In the example factorial(10), this means that the function will compute 10 * 8 * 6 * 4 * 2. However, the base case in this function is if n == 1. In this example (factorial(10)), n will never be 1 since it goes from 2 -> 0. This means that this function runs forever.
+
+Task 3
+
+def sum(low, high)
+    return high + sum(low, high - 1)
+end
+
+The base case that we can add to this function so that it does not run infinitely is return low if low == high:
+
+def sum(low, high)
+    return low if low == high
+    return high + sum(low, high - 1)
+end
+
+Task 4
+
+
