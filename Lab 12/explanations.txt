@@ -1,0 +1,76 @@
+Task 1
+For function:
+function wordBuilder(array) { 
+    let collection = [];
+    for(let i = 0; i < array.length; i++) { 
+        for(let j = 0; j < array.length; j++) {
+            if (i !== j) {
+                collection.push(array[i] + array[j]);
+            }
+        }
+    }
+    return collection; 
+}
+The space complexity in Big O notation would be O(N^2):
+
+There is a nested loop:
+The outer loop runs N times and the inner loop runs N - 1 times because it skips the case where i = j.
+Therefore it would create memory N * (N - 1) (for collection) which is just N^2 - N which can be simplyfied to O(N^2) in Big O notation
+
+Task 2
+For function:
+function reverse(array) { 
+    let newArray = [];
+    for (let i = array.length - 1; i >= 0; i--) { 
+        newArray.push(array[i]);
+    }
+    return newArray;
+}
+
+The space complexity in Big O notation would be O(N):
+The loo iterates through from the length of the array which is N to 0. This means that it runs N times and creates N memory so:
+Space complexity if O(N)
+
+Task 4
+For version 1:
+function doubleArray1(array) { 
+  let newArray = [];
+
+  for(let i = 0; i < array.length; i++) { 
+    newArray.push(array[i] * 2);
+  }
+  return newArray; 
+}
+
+You are looping through the entire array of size N so the time complexity would be O(N)
+You are also creating a brand new array of size N so the space complexity would also be O(N)
+
+
+For version 2:
+function doubleArray2(array) {
+  for(let i = 0; i < array.length; i++) {
+    array[i] *= 2;
+  }
+  return array; 
+}
+You are looping through the entire array of size N so the time complexity would be O(N)
+You are not creating a brand new array or a new instance of a variable or inserting new items onto the array but rather editing (doubling) each integer of the array so the space complexity would be O(1)
+
+
+For version 3:
+function doubleArray3(array, index=0) { 
+  if (index >= array.length) { return; }
+  array[index] *= 2;
+  doubleArray3(array, index + 1);
+  return array; 
+}
+
+The only difference in this function is that it uses recursion but it is still looping through every value in the array properly so the time complexity would be O(N)
+But because the function is being recursively called it is creating a stack of index meaning that it is creating an index every call N times so space complexity would be O(N) 
+
+
+Version	    Time complexity	  Space complexity
+
+Version #1	      O(N)	              O(N)
+Version #2	      O(N)	              O(1)
+Version #3	      O(N)	              O(N)
